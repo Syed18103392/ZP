@@ -1,0 +1,16 @@
+
+
+
+@media print {
+body{
+	background: red;
+}
+#div_print p > span {
+     color: red  !important;
+    display: inline-block;
+    margin: 0 !important;
+    font-size: 40 !important
+    padding: 5px 10px !important;
+
+}
+}
