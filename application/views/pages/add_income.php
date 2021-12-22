@@ -1,17 +1,4 @@
-<!-- Sidebar -->
-<div id="sidebar-wrapper" class="waves-effect" data-simplebar>
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <?php
-						  include("menu.php");
-						?>
-                        <!-- ./sidebar-nav -->
-                    </div>
-                    <!-- ./sidebar -->
-                </div>
-                <!-- ./sidebar-nav -->
-            </div>
-            <!-- ./sidebar-wrapper -->
+
             <!-- Page content -->
             <div id="page-content-wrapper">
                 <div class="page-content">
@@ -53,16 +40,14 @@
                                                          
                                                             <select class="icons" name="mainhead" required id="main_head">
                                                                 <option value=""> খাত নির্বাচন করুন </option>
-                                                                <?php 
-																  $this->db->order_by('id','ASC');
-																  $this->db->where('headtype','Income');
-																  $sql = $this->db->get('main_head');
-																  $rec = $sql->result();
-																  $s=0;
-																  foreach($rec as $row):
-																  $s ++;
+                                                                <?php ;
+                                                               
+																  $records = $main_head_values;
+																 
+																  foreach($records as $row):
+																  
 																?>
-                                                                <option value="<?php echo $row->id; ?>"><?php echo $row->headname; ?></option>
+                                                                <option value="<?php //echo $row->id; ?>"><?php echo $row->headname; ?></option>
                                                                 
                                                                 <?php endforeach; ?>
                                                               
@@ -122,16 +107,16 @@
                                                            <select class="icons" name="bank">
                                                                 <option value="">  চিহ্নিত করুন  </option>
                                                                 <?php 
-																  $this->db->order_by('id','ASC');
-																  $sql = $this->db->get('bank_info');
-																  $rec = $sql->result();
-																  $s=0;
-																  foreach($rec as $row):
-																  $s ++;
+																//   $this->db->order_by('id','ASC');
+																//   $sql = $this->db->get('bank_info');
+																//   $rec = $sql->result();
+																//   $s=0;
+																//   foreach($rec as $row):
+																//   $s ++;
 																?>
-                                                                <option value="<?php echo $row->id; ?>"><?php echo $row->bank_name; ?></option>
+                                                                <option value="<?php //echo $row->id; ?>"><?php //echo $row->bank_name; ?></option>
                                                                 
-                                                                <?php endforeach; ?>
+                                                                <?php //endforeach; ?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -255,7 +240,7 @@
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
-                                                    <input type="hidden" name="uid" value="<?php echo $userid; ?>">
+                                                    <input type="hidden" name="uid" value="<?php //echo $userid; ?>">
                                                 </div>
                                                
                                                 <!-- Button -->
@@ -289,36 +274,35 @@
             <!-- ./page-content -->
         </div>
         <!-- ./page-content-wrapper -->
-<script type="text/javascript">
-	function getInfo(){
-		var val = document.getElementById("paymentmode").value;
-		if(val == 'others'){
-			$("#show").fadeIn(500);	
-		} else {
-			$("#show").fadeOut(500);	
-		}
-	}        
+
+        <script type="text/javascript">
+    function getInfo(){
+        var val = document.getElementById("paymentmode").value;
+        if(val == 'others'){
+            $("#show").fadeIn(500); 
+        } else {
+            $("#show").fadeOut(500);    
+        }
+    }        
 </script>    
 <script type="text/javascript">
-	function locatio(){
-		var val = document.getElementById("location").value;
-		if(val == 'others'){
-			$("#showO").fadeIn(500);	
-		} else {
-			$("#showO").fadeOut(500);	
-		}
-	}        
+    function locatio(){
+        var val = document.getElementById("location").value;
+        if(val == 'others'){
+            $("#showO").fadeIn(500);    
+        } else {
+            $("#showO").fadeOut(500);   
+        }
+    }        
 </script>    
 
-
-    
- <style type="text/css">
-	#show{
-		display:none;	
-	}
+<style type="text/css">
+    #show{
+        display:none;   
+    }
   #showO{
-		display:none;	
-	}
+        display:none;   
+    }
 
 </style>       
         
@@ -326,26 +310,7 @@
 #control-label{ text-align:left;}
 
 </style>
-        <!-- Preloader -->
-        <div id="preloader">
-            <div class="preloader-position">
-                <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-teal">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="gap-patch">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Preloader -->
-        <!-- Start Core Plugins-->
+
 <script>
     $(function(){
         $( "#main_head" ).change(function(event)
@@ -359,18 +324,18 @@
                     data:{ main_head:main_head},
                     success:function(response)
                     {
-                        //alert(response);
-						$("#sub_head .icons").html(response);
+                        alert(response);
+                        $("#sub_head .icons").html(response);
                     },
                     error: function() 
                     {
                         alert("Invalide!");
                     }
-                }
+                } 
             );
         });
     }); 
-	
-	// In your Javascript (external .js resource or <script> tag)
+    
+    // In your Javascript (external .js resource or <script> tag)
 
 </script>

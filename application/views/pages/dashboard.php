@@ -27,10 +27,10 @@ return false;
                             <li>
                                 <a><i class="material-icons">add_to_photos</i> আয়  <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="<?php echo base_url()?>Page/add_income"> আয় (নতুন)</a></li>
-                                    <li><a href="<?php echo base_url()?>Page/view_income"> আয় (অনিষ্পন্ন)</a></li>
-                                    <li><a href="<?php echo base_url()?>Page/income_list"> আয় (সকল) </a></li>
-				   					<li><a href="<?php echo base_url()?>Page/opening_income"> প্রারম্ভিক স্থিতি  </a></li>
+                                    <li><a href="<?php echo base_url()?>add_income"> আয় (নতুন)</a></li>
+                                    <li><a href="<?php echo base_url()?>view_income"> আয় (অনিষ্পন্ন)</a></li>
+                                    <li><a href="<?php echo base_url()?>income_list"> আয় (সকল) </a></li>
+				   					<li><a href="<?php echo base_url()?>opening_income"> প্রারম্ভিক স্থিতি  </a></li>
                                 </ul>
                              </li>
                             
@@ -38,13 +38,13 @@ return false;
                              <li>
                                 <a><i class="material-icons">add_to_photos</i> ব্যয়  <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                     <li><a href="<?php echo base_url()?>Page/add_expenses">ব্যয় (নতুন) </a></li>
-                                     <li><a href="<?php echo base_url()?>Page/view_expenses">ব্যয় (অনিষ্পন্ন) </a></li>
-                                     <li><a href="<?php echo base_url()?>Page/expenditure_list">  ব্যয় (সকল) </a></li>
+                                     <li><a href="<?php echo base_url()?>add_expenses">ব্যয় (নতুন) </a></li>
+                                     <li><a href="<?php echo base_url()?>view_expenses">ব্যয় (অনিষ্পন্ন) </a></li>
+                                     <li><a href="<?php echo base_url()?>expenditure_list">  ব্যয় (সকল) </a></li>
                                      
-                                    <li><a href="<?php echo base_url()?>Page/contractor_bill"> পি.আই.সি / ঠিকাদার বিল(অনিষ্পন্ন) </a></li>
-                                    <li><a href="<?php echo base_url()?>Page/contractor">পি.আই.সি / ঠিকাদার বিল (সকল)</a></li>
-                                    <li><a href="<?php echo base_url()?>Page/new_contractor_bill"> পি.আই.সি / ঠিকাদার বিল (সংযুক্তি)</a></li>
+                                    <li><a href="<?php echo base_url()?>contractor_bill"> পি.আই.সি / ঠিকাদার বিল(অনিষ্পন্ন) </a></li>
+                                    <li><a href="<?php echo base_url()?>contractor">পি.আই.সি / ঠিকাদার বিল (সকল)</a></li>
+                                    <li><a href="<?php echo base_url()?>new_contractor_bill"> পি.আই.সি / ঠিকাদার বিল (সংযুক্তি)</a></li>
 
                                 </ul>
                             </li> 
@@ -87,7 +87,7 @@ return false;
 								   <li><a href="<?php echo base_url()?>Report/main_head_report"> প্রধান খাত রিপোর্ট </a></li>
                                     -->
 									<li><a href="<?php echo base_url()?>Report/land_recoad_report"> ভূমি রেকর্ড  রিপোর্ট</a></li>
-                                    <li><a href="<?php echo base_url()?>Page/budget_allocation">বাজেট রিপোর্ট  </a></li>
+                                    <li><a href="<?php echo base_url()?>budget_allocation">বাজেট রিপোর্ট  </a></li>
                                     <li><a href="<?php echo base_url()?>Report/project_report"> প্রকল্পের  রিপোর্ট </a></li>
 									
 									

@@ -74,9 +74,13 @@
                     $this->load->view('/pages/login');
                 }
                 else {
-                    $data['title'] = $slug;
+                    $this->load->model('add_income_model');
+                    $main_head_values = $this->add_income_model->get_head_info();
+                  
+                     $data['main_head_values'] =$main_head_values  ;
                     $this->load->view('templates/header');
-                    $this->load->view('/pages/'.$slug.'.php');
+                    $this->load->view('/pages/dashboard');
+                    $this->load->view('/pages/add_income',$data);
                     $this->load->view('templates/footer');
                 }
                 
