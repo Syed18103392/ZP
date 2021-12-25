@@ -24,13 +24,11 @@
                                     
                                     <div class="card-content">
                                         <div class="row">
-                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('Accounts/Add_income'); ?>" method="post">
-                                            <h2 class="text-center"> আয় সংযুক্তি ফর্ম    </h2>
+                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('add_income/Add_income'); ?>" method="post">
+                                            <h2 class="text-center"> আয় সংযুক্তি ফর্ম </h2>
 											<input type="hidden" name="incomeid"  value="<?php echo time(); ?>"> 
                                             <fieldset>
-                                              
-                                                
-                                                
+
                                                 <!-- Text input-->
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">প্রধান খাত  </label>
@@ -43,12 +41,11 @@
                                                                 <?php ;
                                                                
 																  $records = $main_head_values;
-																 
+																  //print_r(base_url());
 																  foreach($records as $row):
 																  
 																?>
-                                                                <option value="<?php //echo $row->id; ?>"><?php echo $row->headname; ?></option>
-                                                                
+                                                                <option value="<?php echo $row->id; ?>"><?php echo $row->headname; ?></option>
                                                                 <?php endforeach; ?>
                                                               
                                                             </select>
@@ -88,8 +85,14 @@
                                                         <div class="input-field">
                                                          
                                                           <select class="icons" name="location" id="location"  onchange="locatio()">
-                                                                <?php include("thana.php"); ?>
-                                                                <option value="others"> অন্যান্য  </option>
+                                                          <option value=""> চিহ্নিত করুন    </option>
+                                                            <option value="ফেনী সদর">ফেনী সদর  </option>
+                                                            <option value="দাগনভূঁঞা"> দাগনভূঁঞা  </option>
+                                                            <option value="সোনাগাজী"> সোনাগাজী </option>
+                                                            <option value="ফুলগাজী"> ফুলগাজী   </option> 
+                                                            <option value="পরশুরাম"> পরশুরাম </option>
+                                                            <option value="ছাগলনাইয়া"> ছাগলনাইয়া </option>
+                                                            <option value="others"> অন্যান্য  </option>
                                                             </select>
                                                             <input type="text" name="locations_others" id="showO">  
                                                         </div>
@@ -107,16 +110,15 @@
                                                            <select class="icons" name="bank">
                                                                 <option value="">  চিহ্নিত করুন  </option>
                                                                 <?php 
-																//   $this->db->order_by('id','ASC');
-																//   $sql = $this->db->get('bank_info');
-																//   $rec = $sql->result();
-																//   $s=0;
-																//   foreach($rec as $row):
-																//   $s ++;
+
+																  $rec = $banks_info;
+																
+																  foreach($rec as $row):
+																  
 																?>
-                                                                <option value="<?php //echo $row->id; ?>"><?php //echo $row->bank_name; ?></option>
+                                                                <option value="<?php echo $row->id; ?>"><?php echo $row->bank_name; ?></option>
                                                                 
-                                                                <?php //endforeach; ?>
+                                                                <?php endforeach; ?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -234,13 +236,13 @@
                                                     <div class="col-md-1"><strong> : </strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="file" name="userFiles[]" multiple>  
+                                                           <input type="file" name="userFiles" multiple>  
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
-                                                    <input type="hidden" name="uid" value="<?php //echo $userid; ?>">
+                                                    <input type="hidden" name="uid" value="<?php echo $userid; ?>">
                                                 </div>
                                                
                                                 <!-- Button -->
@@ -286,6 +288,7 @@
     }        
 </script>    
 <script type="text/javascript">
+
     function locatio(){
         var val = document.getElementById("location").value;
         if(val == 'others'){
@@ -293,7 +296,8 @@
         } else {
             $("#showO").fadeOut(500);   
         }
-    }        
+    }   
+
 </script>    
 
 <style type="text/css">
@@ -311,31 +315,4 @@
 
 </style>
 
-<script>
-    $(function(){
-        $( "#main_head" ).change(function(event)
-        {
-            event.preventDefault();
-            var main_head= $("#main_head").val();
-            $.ajax(
-                {
-                    type:"POST",
-                    url: "<?php echo base_url(); ?>Functions/getMainHead",
-                    data:{ main_head:main_head},
-                    success:function(response)
-                    {
-                        alert(response);
-                        $("#sub_head .icons").html(response);
-                    },
-                    error: function() 
-                    {
-                        alert("Invalide!");
-                    }
-                } 
-            );
-        });
-    }); 
-    
-    // In your Javascript (external .js resource or <script> tag)
 
-</script>

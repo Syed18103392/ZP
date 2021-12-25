@@ -64,7 +64,7 @@
         {
             if(!file_exists(APPPATH.'/views/pages/'.$slug.'.php'))
             {
-                // show_404();
+                 show_404();
             }
             else{
                 $login_status_check=$this->session->userdata('user_type');
@@ -76,8 +76,11 @@
                 else {
                     $this->load->model('add_income_model');
                     $main_head_values = $this->add_income_model->get_head_info();
-                  
+                    $banks_list = $this->add_income_model->get_bank_names();
+                   
                      $data['main_head_values'] =$main_head_values  ;
+                     $data['banks_info']=$banks_list;
+                     $data['userid'] = $login_status_check;
                     $this->load->view('templates/header');
                     $this->load->view('/pages/dashboard');
                     $this->load->view('/pages/add_income',$data);

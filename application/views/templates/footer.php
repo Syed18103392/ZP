@@ -247,7 +247,38 @@
 
             });
 
+
+
         });
+
+
+        $(document).ready(function () {
+    $( "#main_head" ).change(function(event)
+        {
+            
+            event.preventDefault();
+            var main_head= jQuery("#main_head").val();
+            
+            $.ajax(
+                {
+                    type:"POST",
+                    url: "<?php echo base_url();?>ajaxData/getMainHead",
+                    data:{main_head:main_head},
+                    success:function(response)
+                    {
+                        //alert(response);
+                        $("#sub_head .icons").html(response);
+                    },
+                    error: function() 
+                    {
+                        alert("Invalide!");
+                    }
+                } 
+            );
+        });
+
+        });
+
 
 
 
@@ -319,9 +350,11 @@
 
         });
 
+    // In your Javascript (external .js resource or <script> tag)
 
 
     });
+
 
 </script>
 
