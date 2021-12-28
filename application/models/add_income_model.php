@@ -25,8 +25,8 @@
         {
             $this->db->insert('income',$data);
             if($this->db->affected_rows() > 0){
-                 
-                redirect('/');
+                $this->session->set_userdata('status','New income add successfully !!');
+                redirect('view_income');
             }
         }
 

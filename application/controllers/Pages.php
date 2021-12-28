@@ -60,6 +60,27 @@
             }
         }
 
+        public function admin_logout($slug = 'logout')
+        {
+            
+                $login_status_check=$this->session->userdata('user_type');
+                
+                if ($login_status_check == null) {
+                    $this->load->view('/pages/'.$slug);
+                    
+                }
+                else {
+                    $this->session->unset_userdata('id');
+				    $this->session->unset_userdata('user_type');
+                    $this->session->unset_userdata('user_id');
+                    $this->session->unset_userdata('password');
+                    redirect(base_url());
+                   
+                }
+                
+        }
+        
+
         public function view_add_income($slug = 'add_income')
         {
             if(!file_exists(APPPATH.'/views/pages/'.$slug.'.php'))
@@ -89,5 +110,73 @@
                 
             }
         }
+        public function view_income(){
+            if(!file_exists(APPPATH.'/views/pages/view_income.php'))
+            {
+                show_404();
+            }
+            else{
+                $login_status_check=$this->session->userdata('user_type');
+                print_r($login_status_check);
+                if ($login_status_check == null) {
+                    $this->session->set_userdata('status','Please Login First');
+                    $this->load->view('/pages/login');
+                }
+                else {
+                    $this->load->model('view_income_model');
+                    $data['list_of_income_record']= $this->view_income_model->show_income_list();
+                    $data['userid']=$this->session->userdata('user_type');
+                    $this->load->view('templates/header');
+                    $this->load->view('pages/dashboard');
+                    $this->load->view('/pages/view_income',$data);
+                    $this->load->view('templates/footer');
+                }
+                
+            }
+        }
+        public function details_income(){
+            if(!file_exists(APPPATH.'/views/pages/income_details.php'))
+            {
+                show_404();
+            }
+            else{
+                $login_status_check=$this->session->userdata('user_type');
+                if ($login_status_check == null) {
+                    $this->session->set_userdata('status','Please Login First');
+                    $this->load->view('/pages/login');
+                }
+                else {
+                    $data['userid']=$this->session->userdata('user_type');
+                    $id = $this->uri->segment(2);
+                    $this->load->model('income_details_model');
+                    $data['income_complete_info']=$this->income_details_model->get_income_details($id);
+                    print_r($data['income_complete_info']);
+                    $this->load->view('templates/header');
+                    $this->load->view('pages/dashboard');
+                    $this->load->view('pages/income_details',$data);
+                    $this->load->view('templates/footer');
+                }
+                
+            }
+        }
+
+
+        // status controller : controll the approve and refuse add money proposal
+        public function income_status()
+        {
+            $id = $this->uri->segment(2);
+            $data = array(
+                'status' => 'approved'
+             );
+             $this->load->model('view_income_model');
+             $result = $this->view_income_model->approveIncome($data,$id);
+             print_r($result);
+             if($result==true){
+                 $this->session->set_userdata('status','Approved');
+                 redirect('income_list');
+             }
+        }
+
+        // status controller : controll the approve and refuse add money proposal
         
     }

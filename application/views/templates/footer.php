@@ -37,39 +37,39 @@
         <!-- End Preloader -->
 <!-- jQuery -->
 
-        <script src="assets/plugins/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 <!-- jquery-ui -->
 
-<script src="assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?><?php echo base_url(); ?>assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
 <!-- Bootstrap -->
 
-<script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!-- materialize  -->
 
-<script src="assets/plugins/materialize/js/materialize.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/materialize/js/materialize.min.js" type="text/javascript"></script>
 
 <!-- metismenu-master -->
 
-<script src="assets/plugins/metismenu-master/dist/metisMenu.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/metismenu-master/dist/metisMenu.min.js" type="text/javascript"></script>
 
 <!-- SlimScroll -->
 
-<script src="assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 
 <!-- m-custom-scrollbar -->
 
-<script src="assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
 
 <!-- scroll -->
 
-<script src="assets/plugins/simplebar/dist/simplebar.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/simplebar/dist/simplebar.js" type="text/javascript"></script>
 
 <!-- custom js -->
 
-<script src="assets/dist/js/custom.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/custom.js" type="text/javascript"></script>
 
 <!-- End Core Plugins
 
@@ -81,19 +81,19 @@
 
 <!-- Sparkline js -->
 
-<script src="assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
 
 <!-- Counter js -->
 
-<script src="assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
 
 <!-- ChartJs JavaScript -->
 
-<script src="assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
 
 <!-- Monthly js -->
 
-<script src="assets/plugins/monthly/monthly.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/monthly/monthly.js" type="text/javascript"></script>
 
 
 
@@ -107,7 +107,7 @@
 
 <!-- main js-->
 
-<script src="assets/dist/js/main.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/main.js" type="text/javascript"></script>
 
 <!-- End Theme label Script
 

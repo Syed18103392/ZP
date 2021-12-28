@@ -1,6 +1,6 @@
  <?php
 // error_reporting(0);
-//  $userid = $_SESSION['user_type'];
+ $userid = $this->session->userdata('user_type');
 
 
 
@@ -10,11 +10,6 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-    
-
-<!-- Mirrored from materialadmin.thememinister.com/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Oct 2017 08:23:04 GMT -->
-
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>ZP</title>
@@ -139,7 +134,7 @@
 
                         <!-- /.user profile -->
                         <li class="dropdown">
-                          <a class='' href='<?php echo base_url()?>Page/logout' style="padding:0">
+                          <a class='' href='<?php base_url()?>logout' style="padding:0">
                            <i class="material-icons">power_settings_new</i>
                            <span>লগআউট</span>
                           </a>
