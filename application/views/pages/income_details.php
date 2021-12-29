@@ -72,10 +72,12 @@
                                               <td> উপ খাত  </td> <td> : </td ><td>
                                                     <?php 
                                                           $subH = $income_complete_info->sub_head;
+                                                          if($subH != null){
                                                           $this->db->where('id',$subH);
                                                           $sqlM = $this->db->get('sub_head');
                                                           $sqlM = $sqlM->row();
                                                           echo $sqlM->sub_head;
+                                                          }
                                                       ?>
                                                  </td>
                                             </tr>

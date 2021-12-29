@@ -28,9 +28,9 @@
                                     
                                     <div class="card-content">
                                         <div class="row">
-                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('Accounts/Edit_income'); ?>" method="post">
+                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('income_controller/update_income'); ?>" method="post">
                                             <h2 class="text-center"> আয়ের তথ্য হালনাগাদ   </h2>
-											 <input type="hidden" name="incomeid" required  value="<?php echo $single_post_data->incomeid; ?>"> 
+											 <input type="hidden" name="incomeid" required  value="<?php echo $single_post_data['info']->incomeid; ?>"> 
                                             <fieldset>
                                               
                                                 <!-- Text input-->
@@ -41,7 +41,7 @@
                                                         <div class="input-field">
                                                          
                                                             <select class="icons" name="mainhead" id="main_head">
-                                                                <option><?php echo $single_post_data->headname; ?></option>
+                                                                <!-- <option value='<?php //echo $single_post_data['info']->main_head ?>' ><?php //echo $single_post_data['info']->headname; ?></option> -->
                                                                 <?php 
 																  $this->db->order_by('id','ASC');
 																  $this->db->where('headtype','Income');
@@ -50,10 +50,17 @@
 																  $s=0;
 																  foreach($rec as $row):
 																  $s ++;
+                                                                  if($row->id== $single_post_data['info']->main_head){
 																?>
-                                                                <option value="<?php echo $row->id; ?>"><?php echo $row->headname; ?></option>
-                                                                
-                                                                <?php endforeach; ?>
+                                                                <option value="<?php echo $row->id; ?>" selected ><?php echo $row->headname; ?></option>
+                                                                <?php 
+                                                                  }
+                                                                  else{
+                                                                ?>
+                                                                 <option value="<?php echo $row->id; ?>"><?php echo $row->headname; ?></option>
+                                                                <?php 
+                                                                  }
+                                                            endforeach; ?>
                                                               
                                                             </select>
 														
@@ -71,7 +78,7 @@
                                                         <div class="input-field" id="sub_head" >
                                                          
                                                           <select class="icons" name="subhead" >
-                                                                <option><?php echo $single_post_data->sub_head; ?></option>
+                                                                <option value="<?php echo $single_post_data['sub_head_id'] ?>"><?php echo $single_post_data['info']->sub_head; ?></option>
                                                             </select>
                                                            
 
@@ -87,7 +94,7 @@
                                                          
                                                           <select class="icons" name="location" id="location"  onchange="locatio()">
                                                                 <option value="" disabled selected><?php 
-																        $location = $single_post_data->location;
+																        $location = $single_post_data['info']->location;
 																		if($location == 'ফেনী সদর'){
                                                                             echo "ফেনী সদর";
                                                                            }elseif($location == 'দাগনভূঁঞা'){
@@ -128,8 +135,8 @@
                                                     <div class="col-md-6">
                                                         <div class="input-field">
                                                            <select class="icons" name="bank">
-                                                               <?php if ($single_post_data->bank !=null){ ?>
-                                                                <option value="<?php echo $single_post_data->bank; ?>"> <?php echo $single_post_data->bank_name; ?></option>
+                                                               <?php if ($single_post_data['info']->bank !=null){ ?>
+                                                                <option value="<?php echo $single_post_data['info']->bank; ?>"> <?php echo $single_post_data['info']->bank_name; ?></option>
                                                                 <?php
                                                                  }
                                                                 else{ ?>
@@ -161,7 +168,7 @@
                                                     <div class="col-md-1"><strong> : *</strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="text" name="bank_branch"  value="<?php echo $single_post_data->branch; ?>"> 
+                                                           <input type="text" name="bank_branch"  value="<?php echo $single_post_data['info']->branch; ?>"> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -171,7 +178,7 @@
                                                     <div class="col-md-1"><strong> : *</strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="number" name="accountno"  value="<?php echo $single_post_data->account_no; ?>"> 
+                                                           <input type="number" name="accountno"  value="<?php echo $single_post_data['info']->account_no; ?>"> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,7 +189,7 @@
                                                     <div class="col-md-6">
                                                         <div class="input-field">
                                                           <select class="icons" name="paymentmode" id="paymentmode" onchange="getInfo()">
-                                                                <option><?php echo $single_post_data->payment_mode; ?></option>
+                                                                <option><?php echo $single_post_data['info']->payment_mode; ?></option>
                                                                  <option> নগদ  </option>
                                                                  <option> চেক  </option>
                                                                  <option>  পে অর্ডার  </option>
@@ -201,7 +208,7 @@
                                                     <div class="col-md-1"><strong> : </strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="text" name="check_number" value="<?php echo $single_post_data->check_no; ?>">   
+                                                           <input type="text" name="check_number" value="<?php echo $single_post_data['info']->check_no; ?>">   
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,7 +219,7 @@
                                                     <div class="col-md-1"><strong> :</strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="text" name="challen" value="<?php echo $single_post_data->challan; ?>">  
+                                                           <input type="text" name="challen" value="<?php echo $single_post_data['info']->challan; ?>">  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,7 +232,7 @@
                                                     <div class="col-md-1"><strong> :</strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="text" name="soruces" value="<?php echo $single_post_data->sources; ?>">  
+                                                           <input type="text" name="soruces" value="<?php echo $single_post_data['info']->sources; ?>">  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -235,7 +242,7 @@
                                                     <div class="col-md-1"><strong> : *</strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="number" name="amount" value="<?php echo $single_post_data->amount; ?>">  
+                                                           <input type="number" name="amount" value="<?php echo $single_post_data['info']->amount; ?>">  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -245,7 +252,7 @@
                                                     <div class="col-md-1"><strong> : *</strong></div>
                                                     <div class="col-md-6"> 
                                                         <div class="input-field">
-                                                           <input type="text" class="tcal" name="date" value="<?php echo $single_post_data->date; ?>">  
+                                                           <input type="text" class="tcal" name="date" value="<?php echo $single_post_data['info']->date; ?>">  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -255,7 +262,7 @@
                                                     <div class="col-md-1"><strong> : </strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <textarea style="height:250px" name="details"><?php echo $single_post_data->details; ?></textarea> 
+                                                           <textarea style="height:250px" name="details"><?php echo $single_post_data['info']->details; ?></textarea> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -266,7 +273,7 @@
                                                     <div class="col-md-1"><strong> : </strong></div>
                                                     <div class="col-md-6">
                                                         <div class="input-field">
-                                                           <input type="file" name="userFiles[]" multiple>  
+                                                           <input type="file" name="userFiles" multiple>  
                                                         </div>
                                                     </div>
                                                 </div>

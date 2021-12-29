@@ -175,7 +175,7 @@
                     $id = $this->uri->segment(2);
                     $this->load->model('income_details_model');
                     $data['income_complete_info']=$this->income_details_model->get_income_details($id);
-                    print_r($data['income_complete_info']);
+                    //print_r($data['income_complete_info']);
                     $this->load->view('templates/header');
                     $this->load->view('pages/dashboard');
                     $this->load->view('pages/income_details',$data);
@@ -205,6 +205,7 @@
         // status controller : controll the approve and refuse add money proposal
 
         //---edit update controller : edit income details controller
+
         public function edit_income_details(){
             if(!file_exists(APPPATH.'/views/pages/edit_income_details.php'))
             {
@@ -220,9 +221,10 @@
                     $data['userid']=$this->session->userdata('user_type');
                     $id= $this->uri->segment(2);
                     $this->load->model('income_details_model');
-                    
+
                     $data['single_post_data']= $this->income_details_model->get_single_post_details($id);
                     print_r($data['single_post_data']);
+
                     $this->load->view('templates/header');
                     $this->load->view('pages/dashboard');
                     $this->load->view('pages/edit_income_details',$data);
@@ -231,6 +233,93 @@
             }
         }
 
+        public function update_income(){
+            // File Upload function Start
+                $income_id = $this->input->post('incomeid');
+                $data = array();
+                $error='';
+                $sdata = array();
+                $fileUploadPath='';
+                
+                $config['upload_path'] = 'uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|docx|pdf|txt|psd|xlsx';
+              
+                if($this->input->post('upload') != null){
+                    $this->load->library('upload',$config);
+                    if(!$this->upload->do_upload('userFiles')){
+                        $error = $this->upload->display_errors();
+                    }
+                    else{
+                        $sdata = $this->upload->data();
+                        print_r($config['upload_path']);
+                        $fileUploadPath =$config['upload_path'].$sdata['file_name'];  
+                    }
+                }
+                //print_r($this->upload->do_upload('userFiles'));
+
+                //print_r($this->upload->display_errors());
+               
+                $year = date('Y');
+        $data = array(
+               'incomeid'    => $income_id,
+               'main_head'   => $this->input->post('mainhead'),
+               'sub_head'    => $this->input->post('subhead'),
+               'location'    => $this->input->post('location'),
+               'location_other' => $this->input->post('locations_others'),
+               'bank'        => $this->input->post('bank'),
+               'branch'      => $this->input->post('bank_branch'),
+               'account_no'  => $this->input->post('accountno'),
+               'payment_mode'=> $this->input->post('paymentmode'),
+               'method_others'=> $this->input->post('other_pay_method'),
+               'check_no'    => $this->input->post('check_number'),
+               'challan'     => $this->input->post('challen'),
+               'date'        => $this->input->post('date'),
+               'sources'     => $this->input->post('soruces'),
+               'amount'      => $this->input->post('amount'),
+               'details'     => $this->input->post('details'),
+               'file_info'   => $fileUploadPath,
+               'status'      => 'Panding',
+               'year'        => $year,
+               'add_person'  => $this->input->post('uid'),
+               
+             );
+             //print_r($data);
+             
+            $this->load->model('add_income_model');
+            $this->add_income_model->UpdateExistingIncome($data);
+      }
+
         //---/edit update controller : edit income details controller
+
+        //---delete update controller : edit income details controller
         
-    }
+                public function delete_single_income(){
+                    if(!file_exists(APPPATH.'/views/pages/edit_income_details.php'))
+                    {
+                        show_404();
+                    }
+                    else{
+                        $login_status_check=$this->session->userdata('user_type');
+                        if ($login_status_check == null) {
+                            $this->session->set_userdata('status','Please Login First');
+                            $this->load->view('/pages/login');
+                        }
+                        else {
+                            $id  = $this->uri->segment(2);
+                            $this->load->model('income_details_model');
+                            $result = $this->income_details_model->delete_income($id);
+                            if($result= true){
+                                $this->session->set_userdata('status','Delete Successfully');
+                                redirect('view_income');
+                            }
+                        }
+                    }
+                }
+
+        
+        //---/delete update controller : edit income details controller
+
+
+        
+        
+}

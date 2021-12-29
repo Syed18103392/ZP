@@ -24,7 +24,7 @@
                                     
                                     <div class="card-content">
                                         <div class="row">
-                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('add_income/Add_income'); ?>" method="post">
+                                          <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url('income_controller/Add_income'); ?>" method="post">
                                             <h2 class="text-center"> আয় সংযুক্তি ফর্ম </h2>
 											<input type="hidden" name="incomeid"  value="<?php echo time(); ?>"> 
                                             <fieldset>

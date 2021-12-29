@@ -129,7 +129,7 @@
                                                            সংস্কার </button>
                                                    </a>
 												   
-												    <a title="Delete" href="<?php echo base_url('Delete/income_info/'.$row->id); ?>" 
+												    <a title="Delete" href="<?php echo base_url('delete-income/'.$row->id); ?>" 
                                                          onClick="return confirm('Are you sure Delete This Option?');">                 
                                                       <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="Delete ">
                                                       বন্ধ </button>
