@@ -134,6 +134,31 @@
                 
             }
         }
+        public function income_list(){
+            if(!file_exists(APPPATH.'/views/pages/income_list.php'))
+            {
+                show_404();
+            }
+            else{
+                $login_status_check=$this->session->userdata('user_type');
+                print_r($login_status_check);
+                if ($login_status_check == null) {
+                    $this->session->set_userdata('status','Please Login First');
+                    $this->load->view('/pages/login');
+                }
+                else {
+                    $this->load->model('view_income_model');
+                    $data['list_of_income_record']= $this->view_income_model->show_all_income_list();
+                    $data['userid']=$this->session->userdata('user_type');
+                    $this->load->view('templates/header');
+                    $this->load->view('pages/dashboard');
+                    $this->load->view('/pages/income_list',$data);
+                    $this->load->view('templates/footer');
+                }
+                
+            }
+        }
+
         public function details_income(){
             if(!file_exists(APPPATH.'/views/pages/income_details.php'))
             {
@@ -178,5 +203,34 @@
         }
 
         // status controller : controll the approve and refuse add money proposal
+
+        //---edit update controller : edit income details controller
+        public function edit_income_details(){
+            if(!file_exists(APPPATH.'/views/pages/edit_income_details.php'))
+            {
+                show_404();
+            }
+            else{
+                $login_status_check=$this->session->userdata('user_type');
+                if ($login_status_check == null) {
+                    $this->session->set_userdata('status','Please Login First');
+                    $this->load->view('/pages/login');
+                }
+                else {
+                    $data['userid']=$this->session->userdata('user_type');
+                    $id= $this->uri->segment(2);
+                    $this->load->model('income_details_model');
+                    
+                    $data['single_post_data']= $this->income_details_model->get_single_post_details($id);
+                    print_r($data['single_post_data']);
+                    $this->load->view('templates/header');
+                    $this->load->view('pages/dashboard');
+                    $this->load->view('pages/edit_income_details',$data);
+                    $this->load->view('templates/footer');
+                }
+            }
+        }
+
+        //---/edit update controller : edit income details controller
         
     }

@@ -113,7 +113,7 @@
                                                   <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Approved">অনুমোদন</button>
                                                 </a>
                                                 
-                                                <a title="Edit"  href="<?php echo base_url('Edit_view/income_info/'.$row->id); ?>">
+                                                <a title="Edit"  href="<?php echo base_url('edit-income/'.$row->id); ?>">
                                                         <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Edit">
                                                          সংস্কার </button>
                                                  </a>

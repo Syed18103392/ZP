@@ -8,6 +8,15 @@
             $rec = $sql->result();
             return $rec;
         }
+        public function show_all_income_list(){
+
+            $this->db->order_by('id','DESC'); 
+            $this->db->where('status','approved');
+            $sql= $this->db->get('income');
+           
+            $rec = $sql->result();
+            return $rec;
+        }
 
         public function approveIncome($data,$id){
             $this->db->where('id',$id);
