@@ -31,10 +31,10 @@ class income_model extends CI_Model
     //UpdateExistingIncome
     public function UpdateExistingIncome($data, $income_id)
     {
-        $old_file_path=$this->session->userdata('editable_file_path');
-        $new_file_path=$data->file_info;
+        $old_file_path = $this->session->userdata('editable_file_path');
+        $new_file_path = $data->file_info;
 
-        if($old_file_path!=$new_file_path){
+        if ($old_file_path != $new_file_path) {
             unlink($old_file_path);
         }
         $this->db->where('incomeid', $income_id);
@@ -99,37 +99,72 @@ class income_model extends CI_Model
         if ($this->db->affected_rows() > 0) {
             return true;
         } else {
-             return false;
+            return false;
         }
     }
 
-    public function show_income_list(){
+    public function show_income_list()
+    {
 
-        $this->db->order_by('id','DESC');
-        $this->db->where('status','Panding');
-        $sql= $this->db->get(' income');
+        $this->db->order_by('id', 'DESC');
+        $this->db->where('status', 'Panding');
+        $sql = $this->db->get(' income');
         $rec = $sql->result();
         return $rec;
     }
-    public function show_all_income_list(){
+    public function show_all_income_list()
+    {
 
-        $this->db->order_by('id','DESC'); 
-        $this->db->where('status','approved');
-        $sql= $this->db->get('income');
-       
+        $this->db->order_by('id', 'DESC');
+        $this->db->where('status', 'approved');
+        $sql = $this->db->get('income');
+
         $rec = $sql->result();
         return $rec;
     }
 
-    public function approveIncome($data,$id){
-        $this->db->where('id',$id);
-        $this->db->update('income',$data);
-         if($this->db->affected_rows() > 0){
-             return true;
-              
-           }
-           else{
-               return false;
-           }	
+    public function approveIncome($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('income', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function add_new_opening_amount($data)
+    {
+        $this->db->insert('opening_balance', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }
+    }
+    public function get_all_opening_amount_list()
+    {
+        $this->db->order_by('id', 'DESC');
+        $sql = $this->db->get('opening_balance');
+        $rec = $sql->result();
+        return $rec;
+    }
+    public function approve_opening_income($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('opening_balance', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function delete_opening_income($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('opening_balance');
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -35,13 +35,6 @@
         </div>
 
         <!-- End Preloader -->
-<!-- jQuery -->
-
-        <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
-
-<!-- jquery-ui -->
-
-<script src="<?php echo base_url(); ?><?php echo base_url(); ?>assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
 <!-- Bootstrap -->
 
@@ -62,6 +55,7 @@
 <!-- m-custom-scrollbar -->
 
 <script src="<?php echo base_url(); ?>assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+
 
 <!-- scroll -->
 

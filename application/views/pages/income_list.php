@@ -211,20 +211,5 @@
         <script src="<?php echo base_url(); ?>assets/dist/js/main.js" type="text/javascript"></script>
         <!-- End Theme label Script
              =====================================================================-->
-        <script>
-             "use strict";
-            $(document).ready(function () {
-                function dtable() {
-                    $('#dataTableExample1').DataTable({
-                        "dom": "<'row'<'col-sm-6'l><'col-sm-6'f>>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-                        "lengthMenu": [
-                            [6, 25, 50, -1],
-                            [6, 25, 50, "All"]
-                        ],
-                        "iDisplayLength": 6
-                    });
-                }
-                return (dtable());
-            });
-        </script>
+
 

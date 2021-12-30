@@ -183,8 +183,8 @@ class income_controller extends CI_Controller
                 $this->load->model('income_model');
 
                 $data['single_post_data'] = $this->income_model->get_single_post_details($id);
-                if(isset($data['single_post_data']['info']->file_info)){
-                $this->session->set_userdata('editable_file_path',$data['single_post_data']['info']->file_info);
+                if (isset($data['single_post_data']['info']->file_info)) {
+                    $this->session->set_userdata('editable_file_path', $data['single_post_data']['info']->file_info);
                 }
                 print_r($data['single_post_data']);
 
@@ -278,6 +278,127 @@ class income_controller extends CI_Controller
 
 
     //---/delete update controller : edit income details controller
+
+    //---Opening income
+
+    public function view_opening_income()
+    {
+        if (!file_exists(APPPATH . '/views/pages/view_opening_income.php')) {
+            show_404();
+        } else {
+            $login_status_check = $this->session->userdata('user_type');
+            print_r($login_status_check);
+            if ($login_status_check == null) {
+                $this->session->set_userdata('status', 'Please Login First');
+                $this->load->view('/pages/login');
+            } else {
+                $this->load->model('income_model');
+                $data['opening_amount_info'] = $this->income_model->get_all_opening_amount_list();
+                $data['userid'] = $login_status_check;
+                $this->load->view('templates/header');
+                $this->load->view('/pages/dashboard');
+                $this->load->view('/pages/view_opening_income', $data);
+                $this->load->view('templates/footer');
+            }
+        }
+    }
+
+    public function view_add_new_opening_amount()
+    {
+        if (!file_exists(APPPATH . '/views/pages/add_new_opening_amount.php')) {
+            show_404();
+        } else {
+            $login_status_check = $this->session->userdata('user_type');
+            print_r($login_status_check);
+            if ($login_status_check == null) {
+                $this->session->set_userdata('status', 'Please Login First');
+                $this->load->view('/pages/login');
+            } else {
+
+                $data['userid'] = $login_status_check;
+                $this->load->view('templates/header');
+                $this->load->view('/pages/dashboard');
+                $this->load->view('/pages/add_new_opening_amount', $data);
+                $this->load->view('templates/footer');
+            }
+        }
+    }
+
+    public function add_new_opening_amount()
+    {
+
+        $login_status_check = $this->session->userdata('user_type');
+        print_r($login_status_check);
+        if ($login_status_check == null) {
+            $this->session->set_userdata('status', 'Please Login First');
+            $this->load->view('/pages/login');
+        } else {
+            $data = array(
+                'type'            => $this->input->post('type'),
+                'session'         => $this->input->post('session'),
+                'month'           => $this->input->post('month'),
+                'entry_date'      => $this->input->post('entryDate'),
+                'opening_amount'  => $this->input->post('amount'),
+                'status'          => 'Panding',
+                'user_id'         => $this->input->post('uid')
+            );
+
+            $this->load->model('income_model');
+            $result = $this->income_model->add_new_opening_amount($data);
+            if ($result == true) {
+                $this->session->set_userdata('status', 'User Information Add Successfully');
+                redirect('opening_income');
+            }
+        }
+    }
+
+
+    // status controller : controll the approve and refuse add money proposal
+    public function approve_opening_income()
+    {
+        $id = $this->uri->segment(2);
+        $data = array(
+            'status' => 'approved'
+        );
+        $this->load->model('income_model');
+        $result = $this->income_model->approve_opening_income($data, $id);
+        print_r($result);
+        if ($result == true) {
+            $this->session->set_userdata('status', 'Approved');
+            redirect('opening_income');
+        }
+    }
+
+    // status controller : controll the approve and refuse add money proposal
+
+    //---delete controller : delete_opening_income
+
+    public function delete_opening_income()
+    {
+        
+            $login_status_check = $this->session->userdata('user_type');
+            if ($login_status_check == null) {
+                $this->session->set_userdata('status', 'Please Login First');
+                $this->load->view('/pages/login');
+            } else {
+                $id  = $this->uri->segment(2);
+                $this->load->model('income_model');
+                $result = $this->income_model->delete_opening_income($id);
+                if ($result == true) {
+                    $this->session->set_userdata('status', 'Delete Successfully');
+                    redirect('opening_income');
+                }
+            }
+    }
+
+
+    //---/delete controller : delete_opening_income
+
+
+
+    //---/Opening income
+
+
 
 
 }
