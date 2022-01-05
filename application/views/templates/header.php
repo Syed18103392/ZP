@@ -73,7 +73,7 @@
 
 <!-- jquery-ui -->
 
-<script src="<?php echo base_url(); ?><?php echo base_url(); ?>assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
           
          <script src="<?php echo base_url(); ?>jsP/tcal.js" type="text/javascript"></script>

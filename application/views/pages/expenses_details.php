@@ -1,6 +1,6 @@
 <?php
 
-$sql = $income_complete_info
+$sql = $expenses_complete_info;
 
 ?>
 <script language="javascript">
@@ -205,20 +205,20 @@ $sql = $income_complete_info
                                             // foreach ($arr as $k => $v) {
                                             //     $i++;
                                             ?>
-                                                <tr>
-                                                    <td valign="top"><?php echo '1'; ?> </td>
-                                                    <td valign="top"><?php echo $filein; ?> </td>
-                                                    <td valign="top">
-                                                        <a href="#" onclick="window.open('<?php echo base_url(); ?><?php echo $filein; ?>')">ফাইল দেখুন</a>
+                                            <tr>
+                                                <td valign="top"><?php echo '1'; ?> </td>
+                                                <td valign="top"><?php echo $filein; ?> </td>
+                                                <td valign="top">
+                                                    <a href="#" onclick="window.open('<?php echo base_url(); ?><?php echo $filein; ?>')">ফাইল দেখুন</a>
 
-                                                    </td>
-                                                    <td valign="top">
-                                                        <a href="<?php echo base_url(); ?><?php echo $filein; ?>" download> ফাইল ডাউনলোড </a>
+                                                </td>
+                                                <td valign="top">
+                                                    <a href="<?php echo base_url(); ?><?php echo $filein; ?>" download> ফাইল ডাউনলোড </a>
 
-                                                    </td>
-                                                </tr>
+                                                </td>
+                                            </tr>
 
-                                        
+
                                         </tbody>
                                     </table>
                                 </div>
