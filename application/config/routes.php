@@ -34,6 +34,7 @@ $route['delete-contractor-bill/(:any)'] = 'contractor_bill_controller/delete_sin
 $route['edit-contractor-bill/(:any)'] = 'contractor_bill_controller/edit_contractor_bill_details/$1';
 
 $route['record-project-tender'] = 'project_tender_controller/view_project_tender';
+$route['record-tender'] = 'project_tender_controller/view_tender';
 //$route['contractor-bill-list'] = 'project_tender_controller/project_tender_list';
 $route['add-new-project'] = 'project_tender_controller/view_add_project_tender';
 $route['view-project/(:any)'] = 'project_tender_controller/details_project_tender/$1';
@@ -48,6 +49,46 @@ $route['view-tranning-info/(:any)'] = 'tranning_info_controller/details_tranning
 //$route['approve-contractor-bill/(:any)'] = 'tranning_info_controller/tranning_info_status/$1';
 $route['delete-tranning-info/(:any)'] = 'tranning_info_controller/delete_single_tranning_info/$1';
 $route['edit-tranning-info/(:any)'] = 'tranning_info_controller/edit_tranning_info_details/$1';
+
+$route['record-audit-info'] = 'audit_info_controller/view_audit_info';
+//$route['contractor-bill-list'] = 'audit_info_controller/audit_info_list';
+$route['add-new-audit-info'] = 'audit_info_controller/view_add_audit_info';
+$route['view-audit-info/(:any)'] = 'audit_info_controller/details_audit_info/$1';
+//$route['approve-contractor-bill/(:any)'] = 'audit_info_controller/audit_info_status/$1';
+$route['delete-audit-info/(:any)'] = 'audit_info_controller/delete_single_audit_info/$1';
+$route['edit-audit-info/(:any)'] = 'audit_info_controller/edit_audit_info_details/$1';
+
+$route['record-case-info'] = 'case_info_controller/view_case_info';
+//$route['contractor-bill-list'] = 'case_info_controller/case_info_list';
+$route['add-new-case-info'] = 'case_info_controller/view_add_case_info';
+$route['view-case-info/(:any)'] = 'case_info_controller/details_case_info/$1';
+//$route['approve-contractor-bill/(:any)'] = 'case_info_controller/case_info_status/$1';
+$route['delete-case-info/(:any)'] = 'case_info_controller/delete_single_case_info/$1';
+$route['edit-case-info/(:any)'] = 'case_info_controller/edit_case_info_details/$1';
+
+$route['record-fdr-info'] = 'fdr_info_controller/view_fdr_info';
+//$route['contractor-bill-list'] = 'fdr_info_controller/fdr_info_list';
+$route['add-new-fdr-info'] = 'fdr_info_controller/view_add_fdr_info';
+$route['view-fdr-info/(:any)'] = 'fdr_info_controller/details_fdr_info/$1';
+//$route['approve-contractor-bill/(:any)'] = 'fdr_info_controller/fdr_info_status/$1';
+$route['delete-fdr-info/(:any)'] = 'fdr_info_controller/delete_single_fdr_info/$1';
+$route['edit-fdr-info/(:any)'] = 'fdr_info_controller/edit_fdr_info_details/$1';
+
+$route['record-land-lease'] = 'land_lease_info_controller/view_land_lease_info';
+//$route['contractor-bill-list'] = 'land_lease_info_controller/land_lease_info_list';
+$route['add-new-land-lease-info'] = 'land_lease_info_controller/view_add_land_lease_info';
+$route['view-land-lease-info/(:any)'] = 'land_lease_info_controller/details_land_lease_info/$1';
+//$route['approve-contractor-bill/(:any)'] = 'land_lease_info_controller/land_lease_info_status/$1';
+$route['delete-land-lease-info/(:any)'] = 'land_lease_info_controller/delete_single_land_lease_info/$1';
+$route['edit-land-lease-info/(:any)'] = 'land_lease_info_controller/edit_land_lease_info_details/$1';
+
+$route['record-land-recoad'] = 'land_recoad_controller/view_land_recoad';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-land-recoad'] = 'land_recoad_controller/view_add_land_recoad';
+$route['view-land-recoad/(:any)'] = 'land_recoad_controller/details_land_recoad/$1';
+//$route['approve-contractor-bill/(:any)'] = 'land_recoad_controller/land_recoad_status/$1';
+$route['delete-land-recoad/(:any)'] = 'land_recoad_controller/delete_single_land_recoad/$1';
+$route['edit-land-recoad/(:any)'] = 'land_recoad_controller/edit_land_recoad_details/$1';
 
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view_login';

@@ -170,6 +170,9 @@
                         echo $status;
                         echo "</p>";
                     } 
+                    
+                    $this->session->unset_userdata('status');
+                    
                 ?>
 
 

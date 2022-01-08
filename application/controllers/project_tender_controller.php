@@ -261,6 +261,27 @@ class project_tender_controller extends CI_Controller
             }
         }
     }
+    public function view_tender()
+    {
+        if (!file_exists(APPPATH . '/views/pages/view_project_tender.php')) {
+            show_404();
+        } else {
+            $login_status_check = $this->session->userdata('user_type');
+            print_r($login_status_check);
+            if ($login_status_check == null) {
+                $this->session->set_userdata('status', 'Please Login First');
+                $this->load->view('/pages/login');
+            } else {
+                $this->load->model('project_tender_model');
+                $data['list_of_pending_record'] = $this->project_tender_model->show_project_tender_list();
+                $data['userid'] = $this->session->userdata('user_type');
+                $this->load->view('templates/header');
+                $this->load->view('pages/dashboard');
+                $this->load->view('/pages/view_tender', $data);
+                $this->load->view('templates/footer');
+            }
+        }
+    }
 
     public function details_project_tender()
     {

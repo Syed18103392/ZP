@@ -55,15 +55,15 @@
 
                         <li><a href="<?php echo base_url() ?>record-project-tender"> প্রকল্প </a></li>
                         <li><a href="<?php echo base_url() ?>record-tranning-info">প্রশিক্ষণ </a></li>
-                        <li><a href="<?php echo base_url() ?>record-audit_info"> অডিট </a></li>
-                        <li><a href="<?php echo base_url() ?>record-case_info"> মামলা </a></li>
+                        <li><a href="<?php echo base_url() ?>record-audit-info"> অডিট </a></li>
+                        <li><a href="<?php echo base_url() ?>record-case-info"> মামলা </a></li>
                         <li><a href="<?php echo base_url() ?>record-tender"> দরপত্র </a></li>
-                        <li><a href="<?php echo base_url() ?>record-fdr_info"> এফ-ডি-আর </a></li>
-                        <li><a href="<?php echo base_url() ?>record-land_lease"> ভূমি ইজারা </a></li>
-                        <li><a href="<?php echo base_url() ?>record-other_lease"> ইজারা (অন্যান্য)</a></li>
-                        <li><a href="<?php echo base_url() ?>record-land_recoad"> ভূমি রেকর্ড </a></li>
-                        <li><a href="<?php echo base_url() ?>record-land_recoad_info"> মালিকানাধীন জমির তথ্য </a></li>
-                        <li><a href="<?php echo base_url() ?>record-others_recoad">রেকর্ড (অন্যান্য)</a></li>
+                        <li><a href="<?php echo base_url() ?>record-fdr-info"> এফ-ডি-আর </a></li>
+                        <li><a href="<?php echo base_url() ?>record-land-lease"> ভূমি ইজারা </a></li>
+                        <li><a href="<?php echo base_url() ?>record-other-lease"> ইজারা (অন্যান্য)</a></li>
+                        <li><a href="<?php echo base_url() ?>record-land-recoad"> ভূমি রেকর্ড </a></li>
+                        <li><a href="<?php echo base_url() ?>record-land-record_info"> মালিকানাধীন জমির তথ্য </a></li>
+                        <li><a href="<?php echo base_url() ?>record-others-record">রেকর্ড (অন্যান্য)</a></li>
                         <li> &nbsp; </li>
 
                     </ul>
