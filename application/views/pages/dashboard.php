@@ -60,7 +60,6 @@
                         <li><a href="<?php echo base_url() ?>record-tender"> দরপত্র </a></li>
                         <li><a href="<?php echo base_url() ?>record-fdr-info"> এফ-ডি-আর </a></li>
                         <li><a href="<?php echo base_url() ?>record-land-lease"> ভূমি ইজারা </a></li>
-                        <li><a href="<?php echo base_url() ?>record-other-lease"> ইজারা (অন্যান্য)</a></li>
                         <li><a href="<?php echo base_url() ?>record-land-recoad"> ভূমি রেকর্ড </a></li>
                         <li><a href="<?php echo base_url() ?>record-land-record_info"> মালিকানাধীন জমির তথ্য </a></li>
                         <li><a href="<?php echo base_url() ?>record-others-record">রেকর্ড (অন্যান্য)</a></li>
@@ -77,42 +76,17 @@
                         <li><a href="<?php echo base_url() ?>Report/Balance_sheet">ব্যালেন্স শীট </a></li>
                         <li><a href="<?php echo base_url() ?>Report/bank_report">ব্যাংক রিপোর্ট </a></li>
                         <li><a href="<?php echo base_url() ?>Report/bank_balance_sheet">ব্যাংক ব্যালেন্স শীট </a></li>
-                        <!-- <li><a href="<?php echo base_url() ?>Report/income_budget_report">আয়ের বাজেট রিপোর্ট  </a></li>
-                                    <li><a href="<?php echo base_url() ?>Report/expenses_budget_report">ব্যয়ের বাজেট রিপোর্ট  </a></li>
-									
-                                   <li><a href="<?php echo base_url() ?>Report/sub_head_report">উপ খাত রিপোর্ট</a></li> 
-								   <li><a href="<?php echo base_url() ?>Report/main_head_report"> প্রধান খাত রিপোর্ট </a></li>
-                                    -->
                         <li><a href="<?php echo base_url() ?>Report/land_recoad_report"> ভূমি রেকর্ড রিপোর্ট</a></li>
                         <li><a href="<?php echo base_url() ?>budget_allocation">বাজেট রিপোর্ট </a></li>
                         <li><a href="<?php echo base_url() ?>Report/project_report"> প্রকল্পের রিপোর্ট </a></li>
-
-
                         <li><a href="<?php echo base_url() ?>Report/fdr_report"> এফ ডি আর রিপোর্ট </a></li>
-
-                        <li> &nbsp; </li>
-
-                        <li></li>
-                        <li></li>
-
                     </ul>
                 </li>
-
-
-
-
             </ul>
-
             <!-- ./sidebar-nav -->
-
         </div>
-
         <!-- ./sidebar -->
-
     </div>
-
     <!-- ./sidebar-nav -->
-
 </div>
-
 <!-- ./sidebar-wrapper end-->

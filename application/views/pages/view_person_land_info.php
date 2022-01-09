@@ -7,7 +7,7 @@
                 <i class="fa fa-table"></i>
             </div>
             <div class="header-title">
-                <h1> ভূমি রেকর্ড সমূহ </h1>
+                <h1> জেলা পরিষদ এর মালিকানাধীন ভূমি সংক্রান্ত তথ্য </h1>
                 <?php
                 $su = $this->session->userdata('status');
                 if (isset($su)) { ?>
@@ -24,7 +24,7 @@
 
                 <ul class="link hidden-xs">
 
-                    <li><a href="<?php echo base_url() ?>add-new-land-recoad">নতুন ভূমি রেকর্ড সংযুক্তি </a></li>
+                    <li><a href="<?php echo base_url() ?>add-new-person-land-info"> মালিকানাধীন ভূমি সংযুক্তি </a></li>
 
                 </ul>
             </div>
@@ -45,16 +45,15 @@
                                                 <th> ক্রমিক নং </th>
                                                 <th> উপজেলা </th>
                                                 <th> মৌজার নাম </th>
-                                                <th> জে-এল নাম্বার</th>
-                                                <th> জরিপ </th>
-                                                <th> খতিয়ান নং </th>
+                                                <th> সি এস খতিয়ান নং </th>
                                                 <th> কার্যক্রিয়া </th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-
+                                            $this->db->order_by('id', 'DESC');
+                                            $sql = $this->db->get('person_land_info');
                                             $rec = $list_of_pending_record;
                                             $i = 0;
                                             foreach ($rec as $row) :
@@ -62,31 +61,45 @@
                                             ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
-                                                    <td class="center">
-                                                        <?php echo $row->thana; ?>
+                                                    <td class="center"><?php $location = $row->thana_name;
+                                                                        if ($location == 'ফেনী সদর') {
+                                                                            echo "ফেনী সদর";
+                                                                        } elseif ($location == 'দাগনভূঁঞা') {
+                                                                            echo "দাগনভূঁঞা";
+                                                                        } elseif ($location == 'সোনাগাজী') {
+                                                                            echo "সোনাগাজী";
+                                                                        } elseif ($location == 'ফুলগাজী') {
+                                                                            echo "ফুলগাজী";
+                                                                        } elseif (
+                                                                            $location == 'পরশুরাম'
+                                                                        ) {
+                                                                            echo "পরশুরাম";
+                                                                        } elseif (
+                                                                            $location == 'ছাগলনাইয়া'
+                                                                        ) {
+                                                                            echo "ছাগলনাইয়া";
+                                                                        } else {
+                                                                            echo "";
+                                                                        }
+                                                                        ?>
                                                     </td>
                                                     <td class="center"><?php echo $row->moja_name; ?></td>
-                                                    <td class="center"><?php echo $row->jal_number; ?></td>
-                                                    <td class="center">
-                                                        <?php echo $land_type = $row->land_type;
-                                                        ?>
-                                                    </td>
+                                                    <td class="center"><?php echo $row->khotian_no; ?></td>
 
-                                                    <td class="center"><?php echo $row->kotian; ?></td>
                                                     <td>
-                                                        <a title="Details" href="<?php echo base_url('view-land-recoad/' . $row->id); ?>">
-                                                            <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Details">বিস্তারিত </button> </a><?php if ($userid == 'super') { ?>
+                                                        <a title="Details" href="<?php echo base_url('view-person-land-info/' . $row->id); ?>">
+                                                            <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Details">বিস্তারিত </button> </a><?php if ($userid == 'super' or $userid == 'sub') { ?>
 
-                                                            <a title="Edit" href="<?php echo base_url('edit-land-recoad/' . $row->id); ?>"> <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Edit">
+                                                            <a title="Edit" href="<?php echo base_url('edit-person-land-info/' . $row->khotian_no); ?>"> <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Edit">
                                                                     <i class="fa fa-pencil" aria-hidden="true"> সংস্কার </i></button>
                                                             </a>
-                                                            <a title="Delete" href="<?php echo base_url('delete-land-recoad/' . $row->id); ?>" onClick="return confirm('Are you sure Delete This Option?');">
+
+                                                            <a title="Delete" href="<?php echo base_url('delete-person-land-info/' . $row->khotian_no); ?>" onClick="return confirm('Are you sure Delete This Option?');">
                                                                 <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="Delete ">
                                                                     <i class="fa fa-trash-o" aria-hidden="true"> বন্ধ </i></button>
                                                             </a>
                                                         <?php } else {
-                                                                     } ?>
-
+                                                                                                                                                                            } ?>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -113,6 +126,7 @@
 <!-- ./page-content-wrapper -->
 </div>
 <!-- ./page-wrapper -->
+
 
 <script>
     "use strict";

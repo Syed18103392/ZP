@@ -63,12 +63,13 @@ class land_lease_info_model extends CI_Model
         $this->db->where('id', $id);
         $sqlQuery = $this->db->get('land_lease_info');
         $wholeData = $sqlQuery->row();
-        $file_path = $wholeData->ex_file;
-
-        unlink($file_path);
+        $land_lease_id = $wholeData->lease_id;
+        $this->db->where('land_lease_info',$land_lease_id);
+        $this->db->delete('landlease_rent_cal');
 
         $this->db->where('id', $id);
         $this->db->delete('land_lease_info');
+        
         if ($this->db->affected_rows() > 0) {
             return true;
         } else {
@@ -81,11 +82,16 @@ class land_lease_info_model extends CI_Model
         $this->db->select('*');
         $this->db->from('land_lease_info');
         $this->db->where('id', $id);
-
-        $sqlland_lease_info = $this->db->get();
-        $result = $sqlland_lease_info->row();
-        $data['info'] = $result;
-        return $data;
+        $query_result = $this->db->get();
+        $resultA = $query_result->row();
+        $leaseId = $resultA->lease_id;
+        $this->db->where('land_lease_info', $leaseId);
+        $resultB = $this->db->get('landlease_rent_cal');
+        //        $resultB=$resultB->row();
+        $result['land_lease_info'] = $resultA;
+        $result['landlease_rent_cal'] = $resultB;
+        
+        return $result;
     }
 
     //UpdateExistingland_lease_info

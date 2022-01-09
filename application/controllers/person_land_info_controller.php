@@ -1,7 +1,7 @@
 <?php
-class land_recoad_controller extends CI_Controller
+class person_land_info_controller extends CI_Controller
 {
-    public function view_add_land_recoad($slug = 'add_land_recoad')
+    public function view_add_person_land_info($slug = 'add_person_land_info')
     {
         if (!file_exists(APPPATH . '/views/pages/' . $slug . '.php')) {
             show_404();
@@ -12,73 +12,143 @@ class land_recoad_controller extends CI_Controller
                 $this->session->set_userdata('status', 'Please Login First');
                 $this->load->view('/pages/login');
             } else {
-                $this->load->model('land_recoad_model');
-                $main_head_values = $this->land_recoad_model->get_head_info();
-                $banks_list = $this->land_recoad_model->get_bank_names();
+                $this->load->model('person_land_info_model');
+                $main_head_values = $this->person_land_info_model->get_head_info();
+                $banks_list = $this->person_land_info_model->get_bank_names();
 
                 $data['main_head_values'] = $main_head_values;
                 $data['banks_info'] = $banks_list;
                 $data['userid'] = $login_status_check;
                 $this->load->view('templates/header');
                 $this->load->view('/pages/dashboard');
-                $this->load->view('/pages/add_land_recoad', $data);
+                $this->load->view('/pages/add_person_land_info', $data);
                 $this->load->view('templates/footer');
             }
         }
     }
-    public function add_land_recoad()
+    public function add_person_land_info()
     {
-        //error_reporting(0);
-        // Recoard Details informaion Add
+
+        //error_reporting(0);	
+        // C AS Informaion Add
         $data = array();
-        $temp = count($this->input->post('dag'));
+        $temp = count($this->input->post('cs_khotian'));
         for ($i = 0; $i < $temp; $i++) {
-            $land_rec_id = $this->input->post('land_rec_id');
-            $dag         = $this->input->post('dag');
-            $land_class  = $this->input->post('land_class');
-            $akok        = $this->input->post('akok');
-            $shotok      = $this->input->post('shotok');
-            $recoad      = $this->input->post('recoad');
-            $comments    = $this->input->post('comments');
-            if ($dag[$i] != '') {
+            $cs_kotian_no  = $this->input->post('cs_kotian');
+
+            $cs_khotian  = $this->input->post('cs_khotian');
+            $cs_dag      = $this->input->post('cs_dag');
+            $cs_land     = $this->input->post('cs_land');
+            $cs_class    = $this->input->post('cs_class');
+            $add_date    = date("d-m-Y");
+            $status      = 'Pending';
+            $add_person  = $this->input->post('uid');
+
+            if ($cs_khotian[$i] != '') {
                 $data[] = array(
-                    'receoad_id'   => $land_rec_id,
-                    'dag_no'       => $dag[$i],
-                    'land_type'    => $land_class[$i],
-                    'land_akok'    => $akok[$i],
-                    'land_shotok'  => $shotok[$i],
-                    'land_recoard' => $recoad[$i],
-                    'comments'     => $comments[$i],
-                    'status' => 1
+                    'cs_kotian_no'  => $cs_kotian_no,
+                    'kotian_no'     => $cs_khotian[$i],
+                    'dag_no'        => $cs_dag[$i],
+                    'land_quan'     => $cs_land[$i],
+                    'class'         => $cs_class[$i],
+                    'add_date'      => $add_date,
+                    'status'        => $status,
+                    'add_person'    => $add_person
                 );
             }
         }
         // print_r($data);
 
         $insert = count($data);
-         if ($insert) {
-           $this->db->insert_batch('land_recoad_details', $data);
-         }
+        if ($insert) {
+            $this->db->insert_batch('person_land_cs', $data);
+        }
 
-        // End Recoard Details Add Systems
-
-
+        // End CS Details 
 
 
-        // File Upload function Start
+        // S A Informaion Add
+        $data = array();
+        $temp = count($this->input->post('cs_khotian'));
+        for ($i = 0; $i < $temp; $i++) {
+            $cs_kotian_no  = $this->input->post('cs_kotian');
+
+            $sa_khotian  = $this->input->post('sa_khotian');
+            $sa_dag      = $this->input->post('sa_dag');
+            $sa_land     = $this->input->post('sa_land');
+            $sa_class    = $this->input->post('sa_class');
+            $status      = 'Pending';
+            $add_person  = $this->input->post('uid');
+
+            if ($sa_khotian[$i] != '') {
+                $data[] = array(
+                    'cs_kotian_no'  => $cs_kotian_no,
+                    'kotian_no'     => $sa_khotian[$i],
+                    'dag_no'        => $sa_dag[$i],
+                    'land_quan'     => $sa_land[$i],
+                    'class'         => $sa_class[$i],
+                    'status'        => $status,
+                    'add_person'    => $add_person
+                );
+            }
+        }
+        // print_r($data);
+
+        $insert = count($data);
+        if ($insert) {
+            $this->db->insert_batch('person_land_sa', $data);
+        }
+
+        // End S A Details 
+
+
+        // R S Informaion Add
+        $data = array();
+        $temp = count($this->input->post('rs_khotian'));
+        for ($i = 0; $i < $temp; $i++) {
+            $cs_kotian_no  = $this->input->post('cs_kotian');
+
+            $rs_khotian  = $this->input->post('rs_khotian');
+            $rs_dag      = $this->input->post('rs_dag');
+            $rs_land     = $this->input->post('rs_land');
+            $rs_class    = $this->input->post('rs_class');
+            $status      = 'Pending';
+            $add_person  = $this->input->post('uid');
+
+            if ($rs_khotian[$i] != '') {
+                $data[] = array(
+                    'cs_kotian_no'  => $cs_kotian_no,
+                    'kotian_no'     => $rs_khotian[$i],
+                    'dag_no'        => $rs_dag[$i],
+                    'land_quan'     => $rs_land[$i],
+                    'class'         => $rs_class[$i],
+                    'status'        => $status,
+                    'add_person'    => $add_person
+                );
+            }
+        }
+        // print_r($data);
+        $insert = count($data);
+        if ($insert) {
+            $this->db->insert_batch('person_land_rs', $data);
+        }
+        //End Tranning Details Add Systems
+
+        //File Upload function Start
         $data = array();
         $doc = json_encode(str_replace(" ", "", $_FILES['userFiles']['name']));
         $filesCount = count($_FILES['userFiles']['name']);
 
-        $rec_id = $this->input->post('land_rec_id');
-        $foldername = mkdir('./uploads/Land_Record/' . $rec_id, 0755, TRUE);
+        $cs_kotian = $this->input->post('cs_kotian');
+
+        $foldername = mkdir('./uploads/PersonLand/' . $cs_kotian, 0755, TRUE);
 
         for ($i = 0; $i < $filesCount; $i++) {
             $_FILES['userFile']['name'] = str_replace(" ", "", $_FILES['userFiles']['name'][$i]);
             $_FILES['userFile']['type'] = $_FILES['userFiles']['type'][$i];
             $_FILES['userFile']['tmp_name'] = $_FILES['userFiles']['tmp_name'][$i];
 
-            $uploadPath = 'uploads/Land_Record/' . $rec_id;
+            $uploadPath = 'uploads/PersonLand/' . $cs_kotian;
             $config['upload_path'] = $uploadPath;
             $config['allowed_types'] = 'gif|jpg|png|docx|pdf|txt|psd|xlsx';
 
@@ -86,32 +156,27 @@ class land_recoad_controller extends CI_Controller
             $this->upload->initialize($config);
             $this->upload->do_upload('userFile');
         }
-        // File Upload function End 
-
-
+        //	File Upload function End 
 
         $dataA = array(
-            'record_id'   => $this->input->post('land_rec_id'),
-            'thana'       => $this->input->post('thana'),
-            'land_type'   => $this->input->post('land_type'),
-            'type_others' => $this->input->post('land_others'),
-            'moja_name'   => $this->input->post('moja_number'),
-            'jal_number'   => $this->input->post('jal_number'),
-            'kotian'      => $this->input->post('khotian'),
-            'add_date'    => $this->input->post('date'),
-            'add_file'    => $doc,
-            'add_person'  => $this->input->post('uid')
+            'thana_name'   => $this->input->post('thana'),
+            'moja_name'    => $this->input->post('moja_number'),
+            'khotian_no'   => $this->input->post('cs_kotian'),
+            'land_id'      => $this->input->post('land_rec_id'),
+            'add_date'     => $this->input->post('date'),
+            'userFiles'     => $doc,
+            'status'       => 'Pending',
+            'add_person'   => $this->input->post('uid')
         );
-
         // print_r($dataA);
 
-         $this->load->model('land_recoad_model');
-         $this->land_recoad_model->insertNewland_recoad($dataA);
+        $this->load->model('person_land_info_model');
+        $this->person_land_info_model->insertNewperson_land_info($dataA);
     }
 
-    public function view_land_recoad()
+    public function view_person_land_info()
     {
-        if (!file_exists(APPPATH . '/views/pages/view_land_recoad.php')) {
+        if (!file_exists(APPPATH . '/views/pages/view_person_land_info.php')) {
             show_404();
         } else {
             $login_status_check = $this->session->userdata('user_type');
@@ -120,20 +185,20 @@ class land_recoad_controller extends CI_Controller
                 $this->session->set_userdata('status', 'Please Login First');
                 $this->load->view('/pages/login');
             } else {
-                $this->load->model('land_recoad_model');
-                $data['list_of_pending_record'] = $this->land_recoad_model->show_land_recoad_list();
+                $this->load->model('person_land_info_model');
+                $data['list_of_pending_record'] = $this->person_land_info_model->show_person_land_info_list();
                 $data['userid'] = $this->session->userdata('user_type');
                 $this->load->view('templates/header');
                 $this->load->view('pages/dashboard');
-                $this->load->view('/pages/view_land_recoad', $data);
+                $this->load->view('/pages/view_person_land_info', $data);
                 $this->load->view('templates/footer');
             }
         }
     }
 
-    public function details_land_recoad()
+    public function details_person_land_info()
     {
-        if (!file_exists(APPPATH . '/views/pages/land_recoad_details.php')) {
+        if (!file_exists(APPPATH . '/views/pages/person_land_info_details.php')) {
             show_404();
         } else {
             $login_status_check = $this->session->userdata('user_type');
@@ -143,12 +208,12 @@ class land_recoad_controller extends CI_Controller
             } else {
                 $data['userid'] = $this->session->userdata('user_type');
                 $id = $this->uri->segment(2);
-                $this->load->model('land_recoad_model');
-                $data['land_recoad_complete_info'] = $this->land_recoad_model->get_land_recoad_details($id);
-                //print_r($data['land_recoad_complete_info']);
+                $this->load->model('person_land_info_model');
+                $data['person_land_info_complete_info'] = $this->person_land_info_model->get_person_land_info_details($id);
+                //print_r($data['person_land_info_complete_info']);
                 $this->load->view('templates/header');
                 $this->load->view('pages/dashboard');
-                $this->load->view('pages/land_recoad_details', $data);
+                $this->load->view('pages/person_land_info_details', $data);
                 $this->load->view('templates/footer');
             }
         }
@@ -156,14 +221,14 @@ class land_recoad_controller extends CI_Controller
 
 
     // status controller : controll the approve and refuse add money proposal
-    public function land_recoad_status()
+    public function person_land_info_status()
     {
         $id = $this->uri->segment(2);
         $data = array(
             'status' => 'approved'
         );
-        $this->load->model('land_recoad_model');
-        $result = $this->land_recoad_model->approveland_recoad($data, $id);
+        $this->load->model('person_land_info_model');
+        $result = $this->person_land_info_model->approveperson_land_info($data, $id);
         //print_r($result);
         if ($result == true) {
             $this->session->set_userdata('status', 'Approved');
@@ -174,9 +239,9 @@ class land_recoad_controller extends CI_Controller
 
     // status controller : controll the approve and refuse add money proposal
 
-    //---delete update controller : edit land_recoad details controller
+    //---delete update controller : edit person_land_info details controller
 
-    public function delete_single_land_recoad()
+    public function delete_single_person_land_info()
     {
 
         $login_status_check = $this->session->userdata('user_type');
@@ -185,8 +250,8 @@ class land_recoad_controller extends CI_Controller
             $this->load->view('/pages/login');
         } else {
             $id  = $this->uri->segment(2);
-            $this->load->model('land_recoad_model');
-            $result = $this->land_recoad_model->delete_land_recoad($id);
+            $this->load->model('person_land_info_model');
+            $result = $this->person_land_info_model->delete_person_land_info($id);
             if ($result == true) {
                 $this->session->set_userdata('status', 'Delete Successfully');
                 redirect('record-land-recoad');
@@ -195,13 +260,13 @@ class land_recoad_controller extends CI_Controller
     }
 
 
-    //---/delete update controller : edit land_recoad details controller
+    //---/delete update controller : edit person_land_info details controller
 
-    //---edit update controller : edit land_recoad details controller
+    //---edit update controller : edit person_land_info details controller
 
-    public function edit_land_recoad_details()
+    public function edit_person_land_info_details()
     {
-        if (!file_exists(APPPATH . '/views/pages/edit_land_recoad_details.php')) {
+        if (!file_exists(APPPATH . '/views/pages/edit_person_land_info_details.php')) {
             show_404();
         } else {
             $login_status_check = $this->session->userdata('user_type');
@@ -211,11 +276,11 @@ class land_recoad_controller extends CI_Controller
             } else {
                 $data['userid'] = $this->session->userdata('user_type');
                 $id = $this->uri->segment(2);
-                $this->load->model('land_recoad_model');
+                $this->load->model('person_land_info_model');
 
-                $data['single_post_data'] = $this->land_recoad_model->get_single_post_details($id);
-               // $data['all_head_list'] = $this->land_recoad_model->get_head_info();
-                //$data['all_bank_list'] = $this->land_recoad_model->get_bank_names();
+                $data['single_post_data'] = $this->person_land_info_model->get_single_post_details($id);
+                // $data['all_head_list'] = $this->person_land_info_model->get_head_info();
+                //$data['all_bank_list'] = $this->person_land_info_model->get_bank_names();
                 //print_r($data);
                 if (isset($data['single_post_data']['info']->ex_file)) {
                     $this->session->set_userdata('editable_file_path', $data['single_post_data']['info']->ex_file);
@@ -224,13 +289,13 @@ class land_recoad_controller extends CI_Controller
 
                 $this->load->view('templates/header');
                 $this->load->view('pages/dashboard');
-                $this->load->view('pages/edit_land_recoad_details', $data);
+                $this->load->view('pages/edit_person_land_info_details', $data);
                 $this->load->view('templates/footer');
             }
         }
     }
 
-    public function update_land_recoad()
+    public function update_person_land_info()
     {
         //error_reporting(0);
         // Land Recoard Details
@@ -258,7 +323,7 @@ class land_recoad_controller extends CI_Controller
             );
         }
         if ($updateArray) {
-            $this->db->update_batch('land_recoad_details', $updateArray, 'id');
+            $this->db->update_batch('person_land_info_details', $updateArray, 'id');
         }
 
         //echo "cc";
@@ -315,20 +380,20 @@ class land_recoad_controller extends CI_Controller
 
         //	 print_r($dataA);
         $this->db->where('record_id', $landid);
-        $this->db->update('land_recoad', $dataA);
+        $this->db->update('person_land_info', $dataA);
         //if($this->db->affected_rows() > 0){
 
         $this->session->set_userdata('status', 'information Update Sucessfully');
         redirect('record-land-recoad');
-		//}
+        //}
         // print_r($data);
     }
 
-    //---/edit update controller : edit land_recoad details controller
+    //---/edit update controller : edit person_land_info details controller
 
-    public function land_recoad_list()
+    public function person_land_info_list()
     {
-        if (!file_exists(APPPATH . '/views/pages/land_recoad_list.php')) {
+        if (!file_exists(APPPATH . '/views/pages/person_land_info_list.php')) {
             show_404();
         } else {
             $login_status_check = $this->session->userdata('user_type');
@@ -337,12 +402,12 @@ class land_recoad_controller extends CI_Controller
                 $this->session->set_userdata('status', 'Please Login First');
                 $this->load->view('/pages/login');
             } else {
-                $this->load->model('land_recoad_model');
-                $data['list_of_land_recoad_record'] = $this->land_recoad_model->show_all_land_recoad_list();
+                $this->load->model('person_land_info_model');
+                $data['list_of_person_land_info_record'] = $this->person_land_info_model->show_all_person_land_info_list();
                 $data['userid'] = $this->session->userdata('user_type');
                 $this->load->view('templates/header');
                 $this->load->view('pages/dashboard');
-                $this->load->view('/pages/land_recoad_list', $data);
+                $this->load->view('/pages/person_land_info_list', $data);
                 $this->load->view('templates/footer');
             }
         }

@@ -90,6 +90,14 @@ $route['view-land-recoad/(:any)'] = 'land_recoad_controller/details_land_recoad/
 $route['delete-land-recoad/(:any)'] = 'land_recoad_controller/delete_single_land_recoad/$1';
 $route['edit-land-recoad/(:any)'] = 'land_recoad_controller/edit_land_recoad_details/$1';
 
+$route['record-land-record_info'] = 'person_land_info_controller/view_person_land_info';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-person-land-info'] = 'person_land_info_controller/view_add_person_land_info';
+$route['view-person-land-info/(:any)'] = 'person_land_info_controller/details_person_land_info/$1';
+//$route['approve-contractor-bill/(:any)'] = 'person_land_info_controller/person_land_info_status/$1';
+$route['delete-person-land-info/(:any)'] = 'person_land_info_controller/delete_single_person_land_info/$1';
+$route['edit-person-land-info/(:any)'] = 'person_land_info_controller/edit_person_land_info_details/$1';
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view_login';
 $route['404_override'] = '';
