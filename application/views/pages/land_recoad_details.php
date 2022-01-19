@@ -205,8 +205,8 @@ $sql = $land_recoad_complete_info;
                                                 </tr>
                                             <?php
 
-                                                $totalakor = $totalakor + $akok;
-                                                $totalshotok = $totalshotok + $shotok;
+                                                $totalakor = $totalakor + (int)$akok;
+                                                $totalshotok = $totalshotok + (int)$shotok;
                                             }
                                             ?>
 

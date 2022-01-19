@@ -282,9 +282,6 @@ class person_land_info_controller extends CI_Controller
                 // $data['all_head_list'] = $this->person_land_info_model->get_head_info();
                 //$data['all_bank_list'] = $this->person_land_info_model->get_bank_names();
                 //print_r($data);
-                if (isset($data['single_post_data']['info']->ex_file)) {
-                    $this->session->set_userdata('editable_file_path', $data['single_post_data']['info']->ex_file);
-                }
                 //print_r($data['single_post_data']);
 
                 $this->load->view('templates/header');

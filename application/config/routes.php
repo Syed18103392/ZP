@@ -98,6 +98,43 @@ $route['view-person-land-info/(:any)'] = 'person_land_info_controller/details_pe
 $route['delete-person-land-info/(:any)'] = 'person_land_info_controller/delete_single_person_land_info/$1';
 $route['edit-person-land-info/(:any)'] = 'person_land_info_controller/edit_person_land_info_details/$1';
 
+$route['record-others-record'] = 'others_record_controller/view_others_record';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-others-record'] = 'others_record_controller/view_add_others_record';
+$route['view-others-record/(:any)'] = 'others_record_controller/details_others_record/$1';
+//$route['approve-contractor-bill/(:any)'] = 'others_record_controller/others_record_status/$1';
+$route['delete-others-record/(:any)'] = 'others_record_controller/delete_single_others_record/$1';
+$route['edit-others-record/(:any)'] = 'others_record_controller/edit_others_record_details/$1';
+
+$route['view-managements'] = 'management_controller/view_management';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-management'] = 'management_controller/view_add_management';
+$route['view-management/(:any)'] = 'management_controller/details_management/$1';
+//$route['approve-contractor-bill/(:any)'] = 'management_controller/management_status/$1';
+$route['delete-management/(:any)'] = 'management_controller/delete_single_management/$1';
+$route['edit-management/(:any)'] = 'management_controller/edit_management_details/$1';
+
+$route['view-all-registers'] = 'all_register_controller/view_all_register';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-all-register'] = 'all_register_controller/view_add_all_register';
+$route['view-all-register/(:any)'] = 'all_register_controller/details_all_register/$1';
+//$route['approve-contractor-bill/(:any)'] = 'all_register_controller/all_register_status/$1';
+$route['delete-all-register/(:any)'] = 'all_register_controller/delete_single_all_register/$1';
+$route['edit-all-register/(:any)'] = 'all_register_controller/edit_all_register_details/$1';
+
+// reporting routing 
+$route['Report/income_report'] = 'report_controller/income_report';
+$route['Report/expenses_report'] = 'report_controller/expenses_report';
+$route['Report/Balance_sheet'] = 'report_controller/Balance_sheet';
+$route['Report/bank_report'] = 'report_controller/bank_report';
+$route['Report/bank_balance_sheet'] = 'report_controller/bank_balance_sheet';
+$route['Report/land_recoad_report'] = 'report_controller/land_recoad_report';
+$route['budget_allocation'] = 'report_controller/budget_allocation_report';
+$route['Report/project_report'] = 'report_controller/project_report';
+$route['Report/fdr_report'] = 'report_controller/fdr_report';
+// reporting routing 
+
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view_login';
 $route['404_override'] = '';
