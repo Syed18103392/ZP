@@ -130,6 +130,14 @@ $route['view-employee/(:any)'] = 'employee_controller/details_employee/$1';
 $route['delete-employee/(:any)'] = 'employee_controller/delete_single_employee/$1';
 $route['edit-employee/(:any)'] = 'employee_controller/edit_employee_details/$1';
 
+$route['view-users'] = 'user_controller/view_user';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-user'] = 'user_controller/view_add_user';
+$route['view-user/(:any)'] = 'user_controller/details_user/$1';
+//$route['approve-contractor-bill/(:any)'] = 'user_controller/user_status/$1';
+$route['delete-user/(:any)'] = 'user_controller/delete_single_user/$1';
+$route['edit-user/(:any)'] = 'user_controller/edit_user_details/$1';
+
 $route['view-budgets'] = 'budget_controller/view_budget';
 //$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
 $route['new_budget_summary'] = 'budget_controller/new_budget_summary';

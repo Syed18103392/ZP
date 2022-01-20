@@ -372,27 +372,13 @@
                                 </div>
                             </div>
                             <?php if ($userid == 'super' || $userid == 'marketT' || $userid == 'engineer' || $userid == 'accounts') { ?>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <div class="panel cardbox bg-11">
-                                        <a href="<?php echo base_url() ?>Guard/view_guard_file">
-                                            <div class="panel-body list-box">
-                                                <div class="cardbox-icon">
-                                                    <i class="material-icons">library_books</i>
-                                                </div>
-                                                <div class="card-details">
-                                                    <p> গার্ড ফাইল
-                                                        <br /> Guard File
-                                                    </p>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
+                                
                             <?php } ?>
                             <?php if ($userid == 'super') { ?>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <div class="panel cardbox bg-4">
                                         <?php if ($userid == 'super' || $userid == 'sub') { ?>
-                                            <a href="<?php echo base_url() ?>Page/view_user">
+                                            <a href="<?php echo base_url() ?>view-users">
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url() ?>">
 
