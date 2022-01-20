@@ -150,98 +150,98 @@ class report_controller extends CI_Controller
         }
     }
 
-    public function main_head_report()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('main_head_report');
-        }
-    }
+//     public function main_head_report()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('main_head_report');
+//         }
+//     }
 
-    public function sub_head_report()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('sub_head_report');
-        }
-    }
-
-
-
-
-    public function Balance_sheetA()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('balance_sheetA');
-        }
-    }
+//     public function sub_head_report()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('sub_head_report');
+//         }
+//     }
 
 
 
 
-    public function budget_report()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('budget_report');
-        }
-    }
-
-    public function income_budget_report()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('income_budget_report');
-        }
-    }
+//     public function Balance_sheetA()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('balance_sheetA');
+//         }
+//     }
 
 
-    public function expenses_budget_report()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('expenses_budget_report');
-        }
-    }
 
-    public function complete_project()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('complete_project');
-        }
-    }
 
-    public function running_project()
-    {
-        $login_status_check = $this->session->userdata('user_type'); 
-        if ($login_status_check == null) {
-                $this->session->set_userdata('status', 'Please Login First');
-                $this->load->view('/pages/login');
-            }  else {
-            $this->load->view('running_project');
-        }
-    }
+//     public function budget_report()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('budget_report');
+//         }
+//     }
+
+//     public function income_budget_report()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('income_budget_report');
+//         }
+//     }
+
+
+//     public function expenses_budget_report()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('expenses_budget_report');
+//         }
+//     }
+
+//     public function complete_project()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('complete_project');
+//         }
+//     }
+
+//     public function running_project()
+//     {
+//         $login_status_check = $this->session->userdata('user_type'); 
+//         if ($login_status_check == null) {
+//                 $this->session->set_userdata('status', 'Please Login First');
+//                 $this->load->view('/pages/login');
+//             }  else {
+//             $this->load->view('running_project');
+//         }
+//     }
 }

@@ -194,8 +194,8 @@ $sqlR = $single_post_data['info'];
 
                                                     <?php
 
-                                                        $totalakor = $totalakor + $akok;
-                                                        $totalshotok = $totalshotok + $shotok;
+                                                        $totalakor = $totalakor + (int)$akok;
+                                                        $totalshotok = $totalshotok + (int)$shotok;
                                                     }
                                                     ?>
                                                 </table>

@@ -122,6 +122,24 @@ $route['view-all-register/(:any)'] = 'all_register_controller/details_all_regist
 $route['delete-all-register/(:any)'] = 'all_register_controller/delete_single_all_register/$1';
 $route['edit-all-register/(:any)'] = 'all_register_controller/edit_all_register_details/$1';
 
+$route['view-employees'] = 'employee_controller/view_employee';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['add-new-employee'] = 'employee_controller/view_add_employee';
+$route['view-employee/(:any)'] = 'employee_controller/details_employee/$1';
+//$route['approve-contractor-bill/(:any)'] = 'employee_controller/employee_status/$1';
+$route['delete-employee/(:any)'] = 'employee_controller/delete_single_employee/$1';
+$route['edit-employee/(:any)'] = 'employee_controller/edit_employee_details/$1';
+
+$route['view-budgets'] = 'budget_controller/view_budget';
+//$route['contractor-bill-list'] = 'land_recoad_controller/land_recoad_list';
+$route['new_budget_summary'] = 'budget_controller/new_budget_summary';
+$route['new_budget'] = 'budget_controller/new_budget';
+$route['new_budget_ex'] = 'budget_controller/new_budget_ex';
+$route['view-budget/(:any)'] = 'budget_controller/details_budget/$1';
+//$route['approve-contractor-bill/(:any)'] = 'budget_controller/budget_status/$1';
+$route['delete-budget/(:any)'] = 'budget_controller/delete_single_budget/$1';
+$route['edit-budget/(:any)'] = 'budget_controller/edit_budget_details/$1';
+
 // reporting routing 
 $route['Report/income_report'] = 'report_controller/income_report';
 $route['Report/expenses_report'] = 'report_controller/expenses_report';

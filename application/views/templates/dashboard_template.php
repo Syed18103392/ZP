@@ -110,7 +110,7 @@
                             <?php } ?>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="panel cardbox bg-1">
-                                    <a href="<?php echo base_url() ?>Personal/view_personal_data">
+                                    <a href="<?php echo base_url() ?>view-employees">
                                         <div class="panel-body list-box">
                                             <div class="cardbox-icon">
 
@@ -128,7 +128,7 @@
                             <?php if ($userid == 'super' || $userid == 'engineer' || $userid == 'accounts') { ?>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <div class="panel cardbox bg-6">
-                                        <a href="<?php echo base_url() ?>Page/budget_allocation">
+                                        <a href="<?php echo base_url() ?>view-budgets">
                                             <div class="panel-body list-box">
                                                 <div class="cardbox-icon">
 
@@ -146,15 +146,15 @@
                             <?php } ?>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="panel cardbox bg-7">
-                                    <a href="<?php echo base_url() ?>Stock/view_stock">
+                                    <a href="<?php echo base_url() ?>view_income">
                                         <div class="panel-body list-box">
                                             <div class="cardbox-icon">
 
                                                 <i class="material-icons">storage</i>
                                             </div>
                                             <div class="card-details">
-                                                <p>স্টক
-                                                    <br /> Stock
+                                                <p>আয়
+                                                    <br /> Income
                                                 </p>
                                             </div>
                                         </div>
@@ -217,15 +217,15 @@
                             <?php if ($userid == 'super' || $userid == 'marketT') { ?>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <div class="panel cardbox bg-2">
-                                        <a href="<?php echo base_url() ?>Page/despass">
+                                        <a href="<?php echo base_url() ?>view_expenses">
                                             <div class="panel-body list-box">
                                                 <div class="cardbox-icon">
 
                                                     <i class="material-icons">email</i>
                                                 </div>
                                                 <div class="card-details">
-                                                    <p> ডেসপাস
-                                                        <br /> Despass
+                                                    <p> ব্যয়
+                                                        <br /> Expenses
                                                     </p>
                                                 </div>
                                             </div>
@@ -288,7 +288,7 @@
                             <?php if ($userid == 'super' || $userid == 'engineer') { ?>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <div class="panel cardbox bg-8">
-                                        <a href="<?php echo base_url() ?>Page/contractor_ledger">
+                                        <a href="<?php echo base_url() ?>contractor_bill-list">
                                             <div class="panel-body list-box">
 
                                                 <div class="cardbox-icon">
@@ -296,8 +296,8 @@
                                                     <i class="hvr-buzz-out fa fa-male"></i>
                                                 </div>
                                                 <div class="card-details">
-                                                    <p> ঠিকাদারি লাইসেন্স
-                                                        <br /> Contracting license
+                                                    <p> ঠিকাদার বিল
+                                                        <br /> Contracting Bill
                                                     </p>
                                                 </div>
 
@@ -309,23 +309,8 @@
                                 </div>
                             <?php } ?>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="panel cardbox bg-7">
-                                    <a href="<?php echo base_url() ?>Page/receive">
-                                        <div class="panel-body list-box">
-                                            <div class="cardbox-icon">
-                                                <i class="material-icons">receipt</i>
-                                            </div>
-                                            <div class="card-details">
-                                                <p> ডাক গ্রহন
-                                                    <br /> Receive
-                                                </p>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="panel cardbox bg-1">
-                                    <a href="<?php echo base_url() ?>Miscell/view_miscell">
+                                    <a href="<?php echo base_url() ?>record-others-record">
                                         <div class="panel-body list-box">
                                             <div class="cardbox-icon">
                                                 <i class="material-icons">style</i>
@@ -371,15 +356,15 @@
                             <?php } ?>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="panel cardbox bg-6">
-                                    <a href="<?php echo base_url() ?>Rent_roshid/view_rentroshid">
+                                    <a href="<?php echo base_url() ?>record-land-recoad">
                                         <div class="panel-body list-box">
                                             <div class="cardbox-icon">
 
                                                 <i class="material-icons"> library_books</i>
                                             </div>
                                             <div class="card-details">
-                                                <p>বরাদ্দ ভাড়ার রশিদ
-                                                    <br /> Allotted Rent Receipt
+                                                <p>ভূমি রেকর্ড
+                                                    <br /> Land record
                                                 </p>
                                             </div>
                                         </div>
