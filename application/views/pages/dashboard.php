@@ -63,7 +63,7 @@
                         <li><a href="<?php echo base_url() ?>record-land-recoad"> ভূমি রেকর্ড </a></li>
                         <li><a href="<?php echo base_url() ?>record-land-record_info"> মালিকানাধীন জমির তথ্য </a></li>
                         <li><a href="<?php echo base_url() ?>record-others-record">রেকর্ড (অন্যান্য)</a></li>
-                        <li> &nbsp; </li>
+            
 
                     </ul>
                 </li>

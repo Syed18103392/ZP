@@ -9,7 +9,7 @@
             <div class="header-title">
                 <h1> ব্যয় </h1>
                 <ul class="link hidden-xs">
-                    <li><a href="<?php echo base_url() ?>Page/add_expenses"> নতুন ব্যয় সংযুক্তি </a></li>
+                    <li><a href="<?php echo base_url() ?>add_expenses"> নতুন ব্যয় সংযুক্তি </a></li>
                 </ul>
             </div>
         </section>
@@ -154,7 +154,7 @@
                                             <div class="col-md-1"><strong> : </strong></div>
                                             <div class="col-md-7">
                                                 <div class="input-field">
-                                                    <select class="icons" name="paymentmode" id="paymentmode" onchange="getInfoA()">
+                                                    <select  required class="icons" name="paymentmode" id="paymentmode" onchange="getInfoA()">
                                                         <option value="" disabled selected>চিহ্নিত করুন</option>
                                                         <option>নগদ</option>
                                                         <option>চেক</option>

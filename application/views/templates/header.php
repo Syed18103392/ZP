@@ -119,13 +119,13 @@
 
                         <!--Notification-->
                         
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
 
                             <a class='dropdown-button user-pro' href='#' data-activates='dropdown-user' style="padding:0">
                                  <i class="material-icons">settings</i>
                                 <span>সেটআপ</span>
 
-                            </a>
+                            </a> -->
 
                             <ul id='dropdown-user' class='dropdown-content'>
                             <?php if($userid == 'super' || $userid == 'sub' || $userid == 'accounts' ){ ?>		

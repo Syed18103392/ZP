@@ -46,7 +46,7 @@
                                             <tr>
                                                 <th> ক্রমিক নং </th>
                                                 <th> বাজেট বরাদ্দ(অর্থ বছর)</th>
-                                                <th> কার্যক্রিয়া </th>
+                                                <!-- <th> কার্যক্রিয়া </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +62,7 @@
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td class="center"><?php echo $row->yearA; ?></td>
-                                                    <td>
+                                                    <!-- <td>
 
                                                         <a title="Edit" href="<?php echo base_url('Page/details_budget_income/' . $row->id); ?>">
                                                             <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Edit">
@@ -86,7 +86,7 @@
 
 
 
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php
                                             endforeach;
@@ -116,7 +116,7 @@
                                             <tr>
                                                 <th> ক্রমিক নং </th>
                                                 <th> বাজেট বরাদ্দ(অর্থ বছর)</th>
-                                                <th> কার্যক্রিয়া </th>
+                                                <!-- <th> কার্যক্রিয়া </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,7 +134,7 @@
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td class="center"><?php echo $row->yearA; ?></td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <?php if ($userid == 'super' || $userid == 'sub' || $userid == 'accounts') { ?>
                                                             <a title="Edit" href="<?php echo base_url('view-budget/' . $row->id); ?>">
                                                                 <button class="btn btn-sm" data-toggle="tooltip" data-placement="left" title="Edit">
@@ -155,7 +155,7 @@
 
 
 
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php
                                             endforeach;

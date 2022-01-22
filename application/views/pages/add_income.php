@@ -11,7 +11,7 @@
                             <h1>   আয় </h1>
                             <ul class="link hidden-xs">
                                <!-- <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>Home</a></li> -->
-                                <li><a href="<?php echo base_url()?>Page/add_income">নতুন আয় সংযুক্তি </a></li>
+                                <li><a href="<?php echo base_url()?>add_income">নতুন আয় সংযুক্তি </a></li>
                             </ul>
                         </div>
                     </section>
